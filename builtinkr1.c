@@ -59,7 +59,7 @@ int set_alias(inf_t *inf, char *str)
 
 /**
  * print_alias - it prints an alias string
- * @no: alias node
+ * @node: alias node
  *
  * Return: Always 0 on success, 1 on error
  */

@@ -48,9 +48,9 @@ int hsh(inf_t *inf, char **av)
  * @inf: the parameter & return info struct
  *
  * Return: -1 if builtinkr not found,
- * 	0 if builtinkr executed successfully,
- * 	1 if builtinkr found but not successful,
- * 	2 if builtinkr signals exit()
+ *	0 if builtinkr executed successfully,
+ *	1 if builtinkr found but not successful,
+ *	2 if builtinkr signals exit()
  */
 int find_builtinkr(inf_t *inf)
 {

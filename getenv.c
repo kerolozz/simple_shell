@@ -1,7 +1,7 @@
 #include "shellkr.h"
 
 /**
- * get_environ - returns the string array copy of our environ
+ * get_environkr - returns the string array copy of our environ
  * @inf: Structure containing potential arguments. Used to maintain
  *          constant function prototype.
  * Return: Always 0
