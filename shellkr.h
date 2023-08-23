@@ -1,5 +1,5 @@
-#ifndef _SHELL_H_
-#define _SHELL_H_
+#ifndef _SHELLKR_H_
+#define _SHELLKR_H_
 
 #include <stdlib.h>
 #include <fcntl.h>
@@ -35,7 +35,7 @@
 #define HIST_FILE	".simple_shell_history"
 #define HIST_MAX	4096
 
-extern char **environ;
+extern char **environkr;
 
 
 /**
@@ -63,7 +63,7 @@ typedef struct liststr
  * @linecount_flag: if on count this line of input
  * @fname: the program filename
  * @env: linked list local copy of environ
- * @environ: custom modified copy of environ from LL env
+ * @environkr: custom modified copy of environ from LL env
  * @history: the history node
  * @alias: the alias node
  * @env_changed: on if environ was changed
@@ -86,7 +86,7 @@ typedef struct passinfo
 	list_t *env;
 	list_t *history;
 	list_t *alias;
-	char **environ;
+	char **environkr;
 	int env_changed;
 	int status;
 
@@ -101,20 +101,20 @@ typedef struct passinfo
 		0, 0, 0}
 
 /**
- * struct builtin - contains a builtin string and related function
- * @type: the builtin command flag
+ * struct builtinkr - contains a builtin string and related function
+ * @type: the builtinkr command flag
  * @func: the function
  */
-typedef struct builtin
+typedef struct builtinkr
 {
 	char *type;
 	int (*func)(inf_t *);
-} builtin_table;
+} builtinkr_table;
 
 
 /* toem_shloop.c */
 int hsh(inf_t *, char **);
-int find_builtin(inf_t *);
+int find_builtinkr(inf_t *);
 void find_cmd(inf_t *);
 void fork_cmd(inf_t *);
 
