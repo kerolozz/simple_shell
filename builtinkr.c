@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shellkr.h"
 
 /**
  * _myexit - it exits the shell
@@ -62,19 +62,19 @@ int _mycd(inf_t *inf)
 		}
 		_puts(_getenv(inf, "OLDPWD=")), _putchar('\n');
 		chdir_ret =
-			chdir((dir = _getenv(info, "OLDPWD=")) ? dir : "/");
+			chdir((dir = _getenv(inf, "OLDPWD=")) ? dir : "/");
 	}
 	else
-		chdir_ret = chdir(info->argv[1]);
+		chdir_ret = chdir(inf->argv[1]);
 	if (chdir_ret == -1)
 	{
-		print_error(info, "can't cd to ");
-		_eputs(info->argv[1]), _eputchar('\n');
+		print_error(inf, "can't cd to ");
+		_eputs(inf->argv[1]), _eputchar('\n');
 	}
 	else
 	{
-		_setenv(info, "OLDPWD", _getenv(info, "PWD="));
-		_setenv(info, "PWD", getcwd(buffer, 1024));
+		_setenv(inf, "OLDPWD", _getenv(inf, "PWD="));
+		_setenv(inf, "PWD", getcwd(buffer, 1024));
 	}
 	return (0);
 }

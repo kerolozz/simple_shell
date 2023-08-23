@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shellkr.h"
 
 /**
  * _myenv - it prints current environment
@@ -21,15 +21,15 @@ int _myenv(inf_t *inf)
  */
 char *_getenv(inf_t *inf, const char *name)
 {
-	list_t *no = inf->env;
+	list_t *node = inf->env;
 	char *m;
 
-	while (no)
+	while (node)
 	{
-		m = starts_with(no->str, name);
+		m = starts_with(node->str, name);
 		if (m && *m)
 			return (m);
-		no = no->next;
+		node = node->next;
 	}
 	return (NULL);
 }
@@ -69,7 +69,7 @@ int _myunsetenv(inf_t *inf)
 		return (1);
 	}
 	for (r = 1; r <= inf->argc; r++)
-		_unsetenv(info, info->argv[r]);
+		_unsetenv(inf, inf->argv[r]);
 
 	return (0);
 }
@@ -82,7 +82,7 @@ int _myunsetenv(inf_t *inf)
  */
 int populate_env_list(inf_t *inf)
 {
-	list_t *no = NULL;
+	list_t *node = NULL;
 	size_t r;
 
 	for (r = 0; environ[r]; r++)

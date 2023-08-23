@@ -1,4 +1,4 @@
-#include "shell.h"
+#include "shellkr.h"
 
 /**
  * _myhistory - it displays the history list, one command by line, preceded
@@ -31,8 +31,8 @@ int unset_alias(inf_t *inf, char *str)
 	n = *m;
 	*m = 0;
 	ret = delete_node_at_index(&(inf->alias),
-		get_node_index(inf->alias, node_starts_with(info->alias, str, -1)));
-	*n = n;
+		get_node_index(inf->alias, node_starts_with(inf->alias, str, -1)));
+	*m = n;
 	return (ret);
 }
 
@@ -63,17 +63,17 @@ int set_alias(inf_t *inf, char *str)
  *
  * Return: Always 0 on success, 1 on error
  */
-int print_alias(list_t *no)
+int print_alias(list_t *node)
 {
 	char *m = NULL, *n = NULL;
 
-	if (no)
+	if (node)
 	{
-		m = _strchr(no->str, '=');
-		for (a = no->str; n <= m; n++)
+		m = _strchr(node->str, '=');
+		for (n = node->str; n <= m; n++)
 		_putchar(*n);
 		_putchar('\'');
-		_puts(p + 1);
+		_puts(m + 1);
 		_puts("'\n");
 		return (0);
 	}
@@ -98,7 +98,7 @@ int _myalias(inf_t *inf)
 		while (no)
 		{
 			print_alias(no);
-			node = no->next;
+			no = no->next;
 		}
 		return (0);
 	}
@@ -108,7 +108,7 @@ int _myalias(inf_t *inf)
 		if (m)
 			set_alias(inf, inf->argv[i]);
 		else
-			print_alias(no_starts_with(inf->alias, inf->argv[i], '='));
+			print_alias(node_starts_with(inf->alias, inf->argv[i], '='));
 	}
 
 	return (0);

@@ -1,13 +1,13 @@
-#include "shell.h"
+#include "shellkr.h"
 
 /**
  * interactive - it return true if shell is interactive mode
- * @info: address of struct
+ * @inf: address of struct
  * Return: if interactive mode return 1, otherwise return 0
  */
-int interactive(info_t *info)
+int interactive(inf_t *inf)
 {
-	return (isatty(STDIN_FILENO) && info->readfd <= 2);
+	return (isatty(STDIN_FILENO) && inf->readfd <= 2);
 }
 
 /**
